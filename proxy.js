@@ -1,12 +1,12 @@
-import express ,{ response } from "express";
+import express from "express";
 import axios from "axios";
 import cors from "cors";
 
 const app = express();
 app.use(cors())
-app.get("/api/standings", async (req, res) => {
+app.get(`/api/standings/`, async (req, res) => {
     try{
-        const response = await axios.get("https://api.football-data.org/v4/competitions/PL/standings",
+        const response = await axios.get(`https://api.football-data.org/v4/competitions/Pl/standings`,
             {headers: { "X-Auth-Token": "0d8978b04dbd4649b1463cb1667783f7"}})
             res.json(response.data)
         
