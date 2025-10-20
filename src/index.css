@@ -3,3 +3,10 @@
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
+/* ::-webkit-scrollbar{
+ width: 6px;
+ background-color: rgb(225, 225, 225);
+} */
+::-webkit-scrollbar-thumb{
+ background-color: aqua;
+}

@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 
-export default function DataTable({league, api}){
+export default function DataTable({league}){
     let [clubs, setClubs] = useState([])
     let [loadStatus, setLoad] = useState(true)
     useEffect(()=>{
         const featchClubs = async () => {
             try {
-                const res = await axios.get("http://localhost:5000/api/standings")
+                const res = await axios.get(`http://localhost:5000/api/${league}`)
                 const data = res.data
                 setClubs(data.standings[0].table)         
             } catch (er) {
@@ -17,12 +17,11 @@ export default function DataTable({league, api}){
             }
         };
         featchClubs()
-    }, [])
-    console.log(clubs)
+    }, [league])
     return(
     <div>
-        <table className="bg-gray-100 text-[14px] rounded-xl">
-            <div className="flex justify-between pr-2 pl-1 py-1 border-b border-gray-400 ">
+        <table className="bg-gray-400 text-[14px] rounded-xl">
+            <div className="flex justify-between pr-4 pl-2 py-1 border-b border-gray-400">
                 <div className="flex gap-1.5 font-serif">
                     <tr>Pos</tr>
                     <tr>team</tr>
@@ -31,7 +30,7 @@ export default function DataTable({league, api}){
                     <tr className="font-semibold">Pts</tr>
                 </div>
             </div>
-        <div className="overflow-y-auto h-93 rounded-xl">{
+        <div className="overflow-y-auto h-97">{
             clubs.map((team, index)=>(
                 <div className="flex justify-between shadow p-3 px-1.5 bg-gray-100 border-b border-gray-200">
                     <div className="flex justify-start items-center gap-1">

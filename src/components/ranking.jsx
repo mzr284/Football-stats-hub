@@ -1,17 +1,18 @@
 import { Link } from "react-router-dom";
 import DataTable from "./dataTables";
 
-export default function Ranking(){
+export default function Ranking({league, ComoleteName}){
+
     return(
-        <div className="w-80 h-130 bg-gray-200 px-3 py-2 mt-3.5 ml-3">
-            <div className="py-1 pl-5">
-                  <h4>Premier League</h4>
+        <div className="flex items-center flex-col w-80 h-137 bg-gray-200 px-3 py-2 mt-3.5 mb-4 text-center">
+            <div className="py-1">
+                  <h4 className="text-[22px] text-violet-950 font-semibold">{ComoleteName}</h4>
                   <span>2025-2026</span>
             </div>
             <div >
-                <DataTable league={"PL"} api={"/v4/competitions/PL"}/>
+                <DataTable league={league}/>
             </div>
-            <p className="cursor-pointer mt-3 ml-4 text-[14px] bg-gray-100"> Show More Info </p>
+            <button className="cursor-pointer mt-3 text-[14px] font-black text-violet-800"> Show More Info </button>
         </div>
     )
 }
