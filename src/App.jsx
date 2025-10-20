@@ -1,11 +1,13 @@
 import './App.css'
 import Header from './components/header'
+import Home from './pages/home'
 
 function App() {
  
   return (
-    <div className='w-full'>
+    <div>
         <Header/>
+        <Home/>
     </div>
   )
 }
