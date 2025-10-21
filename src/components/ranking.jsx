@@ -9,10 +9,10 @@ export default function Ranking({league, ComoleteName}){
                   <h4 className="text-[22px] text-violet-950 font-semibold">{ComoleteName}</h4>
                   <span>2025-2026</span>
             </div>
-            <div >
+            <div>
                 <DataTable league={league}/>
             </div>
-            <button className="cursor-pointer mt-3 text-[14px] font-black text-violet-800"> Show More Info </button>
+            
         </div>
     )
 }

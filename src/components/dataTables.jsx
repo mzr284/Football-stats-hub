@@ -4,14 +4,15 @@ import axios from "axios"
 export default function DataTable({league}){
     let [clubs, setClubs] = useState([])
     let [loadStatus, setLoad] = useState(true)
+    let [errorStatus, setError] = useState(false)
     useEffect(()=>{
         const featchClubs = async () => {
             try {
                 const res = await axios.get(`http://localhost:5000/api/${league}`)
                 const data = res.data
                 setClubs(data.standings[0].table)         
-            } catch (er) {
-                console.error(er)
+            } catch {
+                setError(true)
             } finally {
                 setLoad(false)
             }
@@ -20,6 +21,8 @@ export default function DataTable({league}){
     }, [league])
     return(
     <div>
+        {!loadStatus ? !errorStatus ?
+        <div>
         <table className="bg-gray-400 text-[14px] rounded-xl">
             <div className="flex justify-between pr-4 pl-2 py-1 border-b border-gray-400">
                 <div className="flex gap-1.5 font-serif">
@@ -30,7 +33,7 @@ export default function DataTable({league}){
                     <tr className="font-semibold">Pts</tr>
                 </div>
             </div>
-        <div className="overflow-y-auto h-97">{
+        <div className="overflow-y-auto h-97 w-73">{
             clubs.map((team, index)=>(
                 <div className="flex justify-between shadow p-3 px-1.5 bg-gray-100 border-b border-gray-200">
                     <div className="flex justify-start items-center gap-1">
@@ -46,64 +49,20 @@ export default function DataTable({league}){
             </div>
         
         </table>
+        <button className="cursor-pointer mt-3 text-[14px] font-black text-violet-800"> Show More Info </button>
+        </div>
+        :
+        <div>
+            <div className="flex flex-col gap-20 items-center text-center translate-y-30">
+                <h3 className="font-bold text-xl text-blue-900">Oops! Something wnet wrong</h3>
+                <p className="font-medium"><span className="font-bold">Warnnig:</span> Due to API limits, the data not uopdata instantly. Please refresh every 1 minut to get results.</p>
+            </div>
+        </div>
+        :
+        <div>
+            <div className="flex items-center text-center font-bold text-xl text-blue-900 translate-y-40"><h3 className="text">Data is Loading ...</h3></div>
+        </div>
+        }
     </div>
     )
 }
-
-
-
-
-// import axios from 'axios';
-
-// export default function TableRank({league, api}){
-//     console.log(league, api)
-//     const Leaguetable = ([leage, api]) =>{
-//         let [clubs, setClubs] = useState([])
-//         let [loadStatus, setLoad] = useState(true)
-//         useEffect(()=>{
-//             const fetchData = async () => {
-//                 try {
-//                     const res = await axios.get(`https://thingproxy.freeboard.io/fetch/${api}`,
-//                         {headers: { 'X-Auth-Token': '0d8978b04dbd4649b1463cb1667783f7'}})
-//                     const standings = res.data.standings[0].table;
-//                     const formatClubs = standings.map((team) => ({
-//                         name: team.team.name,
-                        
-//                     }))
-//                     setClubs(formatClubs)
-//                 } catch(er) {
-//                     console.error("Error: ", er)
-//                 } finally {
-//                     setLoad(false)
-//                 }
-//             };
-//             fetchData();
-//         }, [api])
-//         return(
-//         <div className="w-1/4 ml-10 mt-15 rounded shadow py-4 px-3 text-center lg:text-[15px]">
-//             ${leage}
-//             {
-//                 loadStatus ? (
-//                     <div> Please Wait </div>
-//                 ) : (
-//                     <table>
-//                         <tbody>
-//                             {
-//                                 clubs.map((club, index)=>{
-//                                     <tr key={index}>
-//                                         {club.logo && (
-//                                             <img src={club.logo}/>
-//                                         )}
-//                                         <span>{club.name}</span>
-//                                     </tr>
-
-//                                 })
-//                             }
-//                         </tbody>
-//                     </table>
-//                 )
-//             }
-//         </div>
-//     )
-//     }
-// }
