@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
+import "../styles/league-table.css"
 
 export default function DataTable({league}){
     let [clubs, setClubs] = useState([])
@@ -33,7 +34,7 @@ export default function DataTable({league}){
                     <tr className="font-semibold">Pts</tr>
                 </div>
             </div>
-        <div className="overflow-y-auto h-97 w-73">{
+        <div className="league-table overflow-y-auto h-97 w-73">{
             clubs.map((team, index)=>(
                 <div className="flex justify-between shadow p-3 px-1.5 bg-gray-100 border-b border-gray-200">
                     <div className="flex justify-start items-center gap-1">
@@ -46,7 +47,7 @@ export default function DataTable({league}){
                     </div>
                 </div>
             ))}
-            </div>
+        </div>
         
         </table>
         <button className="cursor-pointer mt-3 text-[14px] font-black text-violet-800"> Show More Info </button>

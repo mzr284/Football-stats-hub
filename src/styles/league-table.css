@@ -1,0 +1,10 @@
+.league-table::-webkit-scrollbar{
+    /* background-color: rgb(215, 215, 215); */
+    background-color: rgb(244, 244, 244);
+    width: 3px;
+}
+.league-table::-webkit-scrollbar-thumb{
+    background-color: rgb(190, 190, 190);
+    width: 3px;
+    border-radius: 8px;
+}
