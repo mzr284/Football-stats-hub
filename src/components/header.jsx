@@ -4,7 +4,7 @@ export default function Header(){
     let [statusMenu, setStatus] = useState(false)
 
     return(
-        <div className="flex justify-between w-full bg-gray-100 h-24 items-center px-5 shadow">
+        <div className="flex justify-between w-full bg-gray-100 h-24 items-center px-5 shadow fixed z-1000">
             <img className="lg:w-20 w-12 hover:shadow cursor-pointer rounded-full " src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjsXbxO0HxR8GKqSaty7zOwHchGiEJvgFRwg&s"/>
             <div className="flex lg:gap-10 gap-6 lg:text-[18px] text-[15px] justify-center lg:mr-20 cursor-pointer">
                 <div>

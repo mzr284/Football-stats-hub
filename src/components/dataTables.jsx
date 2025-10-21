@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 import "../styles/league-table.css"
+import { Link } from "react-router-dom"
 
 export default function DataTable({league}){
     let [clubs, setClubs] = useState([])
@@ -24,19 +25,19 @@ export default function DataTable({league}){
     <div>
         {!loadStatus ? !errorStatus ?
         <div>
-        <table className="bg-gray-400 text-[14px] rounded-xl">
+        <div className="bg-gray-400 text-[14px] rounded-xl">
             <div className="flex justify-between pr-4 pl-2 py-1 border-b border-gray-400">
                 <div className="flex gap-1.5 font-serif">
-                    <tr>Pos</tr>
-                    <tr>team</tr>
+                    <p>Pos</p>
+                    <p>team</p>
                 </div>
                 <div>
-                    <tr className="font-semibold">Pts</tr>
+                    <p className="font-semibold">Pts</p>
                 </div>
             </div>
         <div className="league-table overflow-y-auto h-97 w-73">{
             clubs.map((team, index)=>(
-                <div className="flex justify-between shadow p-3 px-1.5 bg-gray-100 border-b border-gray-200">
+                <div key={index} className="flex justify-between shadow p-3 px-1.5 bg-gray-100 border-b border-gray-200">
                     <div className="flex justify-start items-center gap-1">
                         <span>{team.position}.</span>
                         <img className="w-1/8" src={team.team.crest}/>
@@ -49,14 +50,16 @@ export default function DataTable({league}){
             ))}
         </div>
         
-        </table>
-        <button className="cursor-pointer mt-3 text-[14px] font-black text-violet-800"> Show More Info </button>
+        </div>
+            <div className="flex items-center justify-center p-4">
+                <Link className="cursor-pointer text-[14px] font-black text-violet-800" to={`/league/${league}`}> Show More Info </Link>
+            </div>
         </div>
         :
         <div>
             <div className="flex flex-col gap-20 items-center text-center translate-y-30">
-                <h3 className="font-bold text-xl text-blue-900">Oops! Something wnet wrong</h3>
-                <p className="font-medium"><span className="font-bold">Warnnig:</span> Due to API limits, the data not uopdata instantly. Please refresh every 1 minut to get results.</p>
+                <h3 className="font-bold text-xl text-blue-900">Oops! Something went wrong Please check your connection</h3>
+                <p className="font-medium"><span className="font-bold">Warnnig:</span> Due to API limits, the data not updata instantly. Please refresh every 1 minut to get results.</p>
             </div>
         </div>
         :

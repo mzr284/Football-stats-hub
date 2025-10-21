@@ -1,5 +1,4 @@
 .league-table::-webkit-scrollbar{
-    /* background-color: rgb(215, 215, 215); */
     background-color: rgb(244, 244, 244);
     width: 3px;
 }
