@@ -10,7 +10,7 @@ export default function DataTable({league}){
     useEffect(()=>{
         const featchClubs = async () => {
             try {
-                const res = await axios.get(`http://localhost:5000/api/${league}`)
+                const res = await axios.get(`http://localhost:5000/api/league/${league}`)
                 const data = res.data
                 setClubs(data.standings[0].table)         
             } catch {
