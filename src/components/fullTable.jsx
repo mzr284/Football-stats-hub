@@ -24,6 +24,7 @@ export default function FullTable(){
     }, [clubs])
     return(
         <div className="flex flex-col py-8 px-5 bg-gray-100 gap-4 translate-y-10 w-200 translate-x-14">
+            {!loadStatus ? errorStatus ? <div>
             <div className="bg-gray-700 text-white px-2 py-1 flex justify-between">
                 <div className="flex gap-3">
                     <span>Pos</span>
@@ -65,7 +66,19 @@ export default function FullTable(){
                         </div>
                     ))
                 }
+            </div></div>
+            :
+            <div>
+                <div className="flex flex-col gap-10 items-center text-center">
+                    <h3 className="font-bold text-xl text-blue-900">Oops! Something went wrong, Please check your connection</h3>
+                    <p className="font-medium"><span className="font-bold">Warnnig:</span> Due to API limits, the data not updata instantly. Please refresh every 1 minut to get results.</p>
+                </div>
             </div>
+            :
+            <div>
+                <div className="flex items-center text-center font-bold text-xl text-blue-900 p-5"><h3 className="text">Data is Loading ...</h3></div>
+            </div>
+            }
         </div>
     )
 }

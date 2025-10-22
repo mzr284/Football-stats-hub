@@ -23,7 +23,8 @@ export default function TopScorer(){
     }, [])
     return(
         <div className="w-130 mb-15 bg-gray-100 px-3 py-2 translate-y-15">
-            <div>
+
+            {!loadStatus ? !errorStatus ? <div>
                 <div className="flex justify-between bg-gray-700 text-white mb-4 px-2 py-0.5 mt-5">
                     <div>
                         <span>Name</span>
@@ -52,6 +53,18 @@ export default function TopScorer(){
                     }
                 </div>
             </div>
+            :
+            <div>
+                <div className="flex flex-col gap-6 p-5 items-center text-center">
+                    <h3 className="font-bold text-xl text-blue-900">Oops! Something went wrong, Please check your connection</h3>
+                    <p className="font-medium"><span className="font-bold">Warnnig:</span> Due to API limits, the data not updata instantly. Please refresh every 1 minut to get results.</p>
+                </div>
+            </div>
+            :
+            <div>
+                <div className="flex items-center text-center font-bold text-xl text-blue-900 p-10"><h3 className="text">Data is Loading ...</h3></div>
+            </div>
+            }
         </div>
     )
 }
