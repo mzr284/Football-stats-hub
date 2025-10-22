@@ -1,0 +1,10 @@
+.attrs span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.3rem;
+}
+
+.header-table span{
+    width: 1.01rem;
+}
