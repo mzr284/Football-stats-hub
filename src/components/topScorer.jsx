@@ -22,7 +22,7 @@ export default function TopScorer(){
         featchData();
     }, [])
     return(
-        <div className="w-130 mb-15 bg-gray-100 px-3 py-2 translate-y-15">
+        <div className="w-130 mb-15 bg-gray-100 px-3 py-2">
 
             {!loadStatus ? !errorStatus ? <div>
                 <div className="flex justify-between bg-gray-700 text-white mb-4 px-2 py-0.5 mt-5">

@@ -12,7 +12,10 @@ app.get(`/api/:type/:id`, async (req, res) => {
         url = `competitions/${id}/standings`;
     }
     if(type == "scorers"){
-        url = `competitions/${id}/scorers`
+        url = `competitions/${id}/scorers`;
+    }
+    if(type == "team"){
+        url = `teams/${id}`;
     }
     try{
         const response = await axios.get(`https://api.football-data.org/v4/${url}`,

@@ -3,6 +3,7 @@ import Header from './components/header'
 import FullTablePage from './pages/fullTablePage'
 import Home from './pages/home'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import TeamInfo from './pages/teamInfo'
 
 function App() {
  
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/league/:leagueName' element={<FullTablePage/>}/>
+          <Route path='/team/:teamId' element={<TeamInfo/>}/>
         </Routes>
       </Router>
     </div>

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import "../styles/attrsTable.css"
 
 export default function FullTable(){
@@ -18,13 +18,14 @@ export default function FullTable(){
                 setError(true)
             } finally {
                 setLoad(false)
+                setError(false)
             }
         }
         featchClubs();
     }, [clubs])
     return(
-        <div className="flex flex-col py-8 px-5 bg-gray-100 gap-4 translate-y-10 w-200 translate-x-14">
-            {!loadStatus ? errorStatus ? <div>
+        <div className="flex flex-col py-8 px-5 bg-gray-100 gap-4 translate-y-10 w-200">
+            {!loadStatus ? !errorStatus ? <div>
             <div className="bg-gray-700 text-white px-2 py-1 flex justify-between">
                 <div className="flex gap-3">
                     <span>Pos</span>
@@ -51,7 +52,7 @@ export default function FullTable(){
                             <div className="flex items-center gap-3">
                                 <span className="w-4 text-center">{team.position}. </span>
                                 <img className="w-9" src={team.team.crest}/>
-                                <span>{team.team.name}</span>
+                                <Link to={`/team/${team.team.id}`}><span className="hover:text-blue-900 transition">{team.team.name}</span></Link>
                             </div>
                             <div className="attrs flex gap-3 justify-center items-center">
                                 <span>{team.playedGames}</span>
