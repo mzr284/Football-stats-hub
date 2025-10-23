@@ -20,10 +20,10 @@ export default function DataTable({league}){
             }
         };
         featchClubs()
-    }, [league])
+    }, [])
     return(
     <div>
-        {!loadStatus ? !errorStatus ?
+        { !errorStatus ? !loadStatus ?
         <div>
         <div className="bg-gray-400 text-[14px] rounded-xl">
             <div className="flex justify-between pr-4 pl-2 py-1 border-b border-gray-400">
@@ -57,14 +57,14 @@ export default function DataTable({league}){
         </div>
         :
         <div>
+            <div className="flex items-center text-center font-bold text-xl text-blue-900 translate-y-40"><h3 className="text">Data is Loading ...</h3></div>
+        </div>
+        :
+        <div>
             <div className="flex flex-col gap-20 items-center text-center translate-y-30">
                 <h3 className="font-bold text-xl text-blue-900">Oops! Something went wrong Please check your connection</h3>
                 <p className="font-medium"><span className="font-bold">Warnnig:</span> Due to API limits, the data not updata instantly. Please refresh every 1 minut to get results.</p>
             </div>
-        </div>
-        :
-        <div>
-            <div className="flex items-center text-center font-bold text-xl text-blue-900 translate-y-40"><h3 className="text">Data is Loading ...</h3></div>
         </div>
         }
     </div>

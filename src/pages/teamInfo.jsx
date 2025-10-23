@@ -1,11 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { data, useParams } from "react-router-dom"
+import TeamData from "../components/teamData";
 
 export default function TeamInfo(){
     const { teamId } = useParams();
     let [team, setTeam] = useState({});
     let [loadStatus, setLoad] = useState(true);
+    let [errorStatus, setError] = useState(false);
     useEffect(()=>{
         const fetchData = async ()=>{
             try{
@@ -13,37 +15,30 @@ export default function TeamInfo(){
                 const dataT = res.data;
                 setTeam(dataT)
             } catch (er){
-                console.log(er)
+                setError(true)
             } finally {
                 setLoad(false);
             }
         }
         fetchData();
-    }, [team])
+    }, [])
+    console.log(team)
     return(
         <div className="translate-y-25">
-            {!loadStatus ? <div>
-            <div>
-                <img className="w-20" src={team.area.flag}/>
-                <h3>{team.area.name}</h3>
+        { !errorStatus ? !loadStatus ?
+        <TeamData team={team}/>
+        : 
+        <div>
+            <div className="flex items-center text-center font-bold text-xl text-blue-900 p-5"><h3 className="text">Data is Loading ...</h3></div>
+        </div>
+        :
+        <div>
+            <div className="flex flex-col gap-10 items-center text-center">
+                <h3 className="font-bold text-xl text-blue-900">Oops! Something went wrong, Please check your connection</h3>
+                <p className="font-medium"><span className="font-bold">Warnnig:</span> Due to API limits, the data not updata instantly. Please refresh every 1 minut to get results.</p>
             </div>
-            <div>
-                <img src={team.crest} className="w-20"/>
-                <h2>{team.name}</h2>
-            </div>
-            <div className="">
-                <h4>{team.coach.name}</h4>
-                <span>{team.coach.nationality}</span>
-                <div>
-                    <h4>Contract</h4>
-                    <span>Start: <span>{team.coach.contract.start}</span></span>
-                    <span>Until: <span>{team.coach.contract.until}</span></span>
-                </div>
-            </div></div> : 
-            <div>
-                <div className="flex items-center text-center font-bold text-xl text-blue-900 p-5"><h3 className="text">Data is Loading ...</h3></div>
-            </div>
-            }
+        </div>
+        }
         </div>
     )
 }
