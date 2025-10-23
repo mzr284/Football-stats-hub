@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { data, useParams } from "react-router-dom"
 import TeamData from "../components/teamData";
+import RunningCom from "../components/runningCom";
+import SquadTeam from "../components/squadTeam";
 
 export default function TeamInfo(){
     const { teamId } = useParams();
@@ -22,11 +24,16 @@ export default function TeamInfo(){
         }
         fetchData();
     }, [])
-    console.log(team)
     return(
         <div className="translate-y-25">
         { !errorStatus ? !loadStatus ?
+        <div className="flex gap-20">
+            <div className="flex flex-col">
         <TeamData team={team}/>
+        <RunningCom team={team}/>
+            </div>
+        <SquadTeam squad={team.squad}/>
+        </div>
         : 
         <div>
             <div className="flex items-center text-center font-bold text-xl text-blue-900 p-5"><h3 className="text">Data is Loading ...</h3></div>
