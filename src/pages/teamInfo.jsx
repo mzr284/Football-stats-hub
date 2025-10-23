@@ -4,6 +4,7 @@ import { data, useParams } from "react-router-dom"
 import TeamData from "../components/teamData";
 import RunningCom from "../components/runningCom";
 import SquadTeam from "../components/squadTeam";
+import TeamMatches from "../components/teamMatches";
 
 export default function TeamInfo(){
     const { teamId } = useParams();
@@ -28,11 +29,12 @@ export default function TeamInfo(){
         <div className="translate-y-25">
         { !errorStatus ? !loadStatus ?
         <div className="flex gap-20">
-            <div className="flex flex-col">
+        <div className="flex flex-col">
         <TeamData team={team}/>
         <RunningCom team={team}/>
-            </div>
+        </div>
         <SquadTeam squad={team.squad}/>
+        <TeamMatches teamId={teamId}/>
         </div>
         : 
         <div>

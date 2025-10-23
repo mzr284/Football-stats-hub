@@ -17,6 +17,9 @@ app.get(`/api/:type/:id`, async (req, res) => {
     if(type == "team"){
         url = `teams/${id}`;
     }
+    if(type == "matches"){
+        url = `teams/${id}/matches`
+    }
     try{
         const response = await axios.get(`https://api.football-data.org/v4/${url}`,
             {headers: {"X-Auth-Token": "0d8978b04dbd4649b1463cb1667783f7"}})
