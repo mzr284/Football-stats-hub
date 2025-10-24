@@ -1,0 +1,48 @@
+.attrs span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.3rem;
+}
+
+.header-table span{
+    width: 1.01rem;
+}
+
+@media(max-width:820px){
+    .table-{
+        width: 37rem;
+    }
+    .attrs span{
+        width: 1.3rem;
+    }
+    .header-table{
+        padding-right: 0;
+        gap: .95rem;
+        font-size: 14px;
+    }
+}
+@media(max-width:608px){
+    .table-{
+        width: 30rem;
+    }
+    .attrs span{
+        width: 1rem;
+    }
+    .goals{
+        display: none;
+    }
+    .attrs .goals{
+        display: none;
+    }
+    .header-table{
+        padding-right: 0;
+        gap: .57rem;
+        font-size: 14px;
+    }
+    .Pts-span{
+        font-size: 14px;
+        font-weight: 400;
+        translate: 7px 0px;
+    }
+}
