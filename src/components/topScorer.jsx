@@ -20,7 +20,7 @@ export default function TopScorer(){
             }
         }
         featchData();
-    }, [])
+    }, [leagueName])
     return(
         <div className="w-130 mb-15 bg-gray-100 px-3 py-2">
 

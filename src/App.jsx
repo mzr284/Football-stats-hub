@@ -9,8 +9,8 @@ function App() {
  
   return (
     <div>
-      <Header/>
       <Router>
+        <Header/>
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/league/:leagueName' element={<FullTablePage/>}/>

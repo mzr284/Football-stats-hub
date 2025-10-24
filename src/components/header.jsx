@@ -1,5 +1,7 @@
 import { useState } from "react"
 import { FaChevronDown } from "react-icons/fa"
+import "../styles/leagueLI.css"
+import { Link } from "react-router-dom"
 export default function Header(){
     let [statusMenu, setStatus] = useState(false)
 
@@ -10,19 +12,19 @@ export default function Header(){
                 <div>
                 <a className="text-1xl flex justify-center items-center gap-1" onClick={() => {setStatus(!statusMenu)}}>Leauges<FaChevronDown className="text-xs" /></a>
                 { statusMenu &&
-                <ul className="mt-3 bg-gray-300 flex flex-col gap-3 px-2 py-2.5 justify-center absolute rounded lg:text-[17px]">
-                    <li>Premiur Leauge</li>
-                    <li>Boundes Liga</li>
-                    <li>La Liga</li>
-                    <li>Seri A</li>
-                    <li>Liga Portugal</li>
-                    <li>Ligue 1</li>
+                <ul className="li-container mt-3 bg-gray-200 flex flex-col gap-3 px-2 py-2.5 justify-center font-serif absolute rounded lg:text-[16px]">
+                    <Link to={`/league/PL`}><li>Premiur Leauge</li></Link>
+                    <Link to={`/league/BL1`}><li>Boundes Liga</li></Link>
+                    <Link to={`/league/PD`}><li>La Liga</li></Link>
+                    <Link to={`/league/SA`}><li>Seri A</li></Link>
+                    <Link to={`/league/PPL`}><li>Liga Portugal</li></Link>
+                    <Link to={`/league/FL1`}><li>Ligue 1</li></Link>
                 </ul>
                 }
                 </div>
                 <a className="text-1xl">Favorite Clubs</a>
-                <a className="text-1xl">Transfers</a>
-                <a className="text-1xl">Live Results</a>
+                <a className="text-1xl">News</a>
+                <a className="text-1xl">Home</a>
             </div>
         </div>
     )

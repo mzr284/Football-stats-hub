@@ -21,7 +21,7 @@ export default function FullTable(){
             }
         }
         featchClubs();
-    }, [])
+    }, [leagueName])
     return(
         <div className="flex flex-col py-8 px-5 bg-gray-100 gap-4 translate-y-10 w-200">
             {!errorStatus ? !loadStatus ?<div>
