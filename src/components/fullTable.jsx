@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom"
 import "../styles/fullTable.css"
+import "../styles/scorers.css"
 
 export default function FullTable(){
     const { leagueName } = useParams();
