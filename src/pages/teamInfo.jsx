@@ -28,13 +28,13 @@ export default function TeamInfo(){
     return(
         <div className="translate-y-25">
         { !errorStatus ? !loadStatus ?
-        <div className="flex gap-20">
+        <div className="flex gap-20 justify-between px-5">
         <div className="flex flex-col">
         <TeamData team={team}/>
         <RunningCom team={team}/>
         </div>
-        <SquadTeam squad={team.squad}/>
         <TeamMatches teamId={teamId}/>
+        <SquadTeam squad={team.squad}/>
         </div>
         : 
         <div>
