@@ -13,6 +13,8 @@ export default function SquadTeam({squad}){
         "Centre-Forward": "CF",
         "Offence": "FW",
         "Defence": "DF",
+        "Right Midfield": "CRM",        
+        "Left Midfield": "CLM",        
     }
     const getAge = (birthDay) => {
         let birth = new Date(birthDay);
@@ -24,9 +26,8 @@ export default function SquadTeam({squad}){
         }
         return age;
     }
-    console.log(squad)
     return(
-        <div className="flex items-center flex-col gap-5 mt-2">
+        <div className="flex items-center flex-col gap-5 mt-2 mr-2">
             <div className="px-2 py-1 shadow border-b-2 border-b-indigo-950 rounded">
               <h2 className="font-bold text-[20px] text-indigo-950">Players</h2>
             </div>

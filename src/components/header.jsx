@@ -12,8 +12,11 @@ export default function Header(){
                 { statusMenu &&
                 <ul className="mt-3 bg-gray-300 flex flex-col gap-3 px-2 py-2.5 justify-center absolute rounded lg:text-[17px]">
                     <li>Premiur Leauge</li>
-                    <li>Bondes Liga</li>
-                    <li>Laliga</li>
+                    <li>Boundes Liga</li>
+                    <li>La Liga</li>
+                    <li>Seri A</li>
+                    <li>Liga Portugal</li>
+                    <li>Ligue 1</li>
                 </ul>
                 }
                 </div>

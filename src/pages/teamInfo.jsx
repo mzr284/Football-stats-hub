@@ -5,6 +5,7 @@ import TeamData from "../components/teamData";
 import RunningCom from "../components/runningCom";
 import SquadTeam from "../components/squadTeam";
 import TeamMatches from "../components/teamMatches";
+import "../styles/teamSquad.css"
 
 export default function TeamInfo(){
     const { teamId } = useParams();
@@ -24,17 +25,18 @@ export default function TeamInfo(){
             }
         }
         fetchData();
-    }, [])
+    }, [teamId])
     return(
         <div className="translate-y-25">
         { !errorStatus ? !loadStatus ?
-        <div className="flex gap-20 justify-between px-5">
-        <div className="flex flex-col">
-        <TeamData team={team}/>
-        <RunningCom team={team}/>
-        </div>
-        <TeamMatches teamId={teamId}/>
-        <SquadTeam squad={team.squad}/>
+        <div className="flex gap-3 lg:justify-between lg:items-start md:items-start 
+        md:justify-between items-center justify-center flex-wrap">
+            <div className="team-date flex flex-col px-2 py-1">
+                <TeamData team={team}/>
+                <RunningCom team={team}/>
+            </div>
+            <TeamMatches teamId={teamId}/>
+            <div className="squad"><SquadTeam squad={team.squad}/></div>
         </div>
         : 
         <div>
