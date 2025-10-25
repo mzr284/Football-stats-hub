@@ -4,6 +4,7 @@ import FullTablePage from './pages/fullTablePage'
 import Home from './pages/home'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import TeamInfo from './pages/teamInfo'
+import NewsPage from './pages/newsPage'
 
 function App() {
  
@@ -15,6 +16,7 @@ function App() {
           <Route path='/' element={<Home/>}/>
           <Route path='/league/:leagueName' element={<FullTablePage/>}/>
           <Route path='/team/:teamId' element={<TeamInfo/>}/>
+          <Route path='/news' element={<NewsPage/>}/>
         </Routes>
       </Router>
     </div>
