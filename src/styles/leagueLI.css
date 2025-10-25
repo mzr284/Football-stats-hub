@@ -7,3 +7,9 @@
     background-color: rgb(44, 115, 255);
     border: none;
 }
+li{
+    transition: all .2s ease;
+}
+li:hover{
+    color: blue;
+}
