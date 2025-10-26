@@ -1,0 +1,26 @@
+@media(max-width:1358px){
+    .text-news{
+        font-size: 17px;
+    }
+}
+@media(max-width:1236px){
+    .news-container{
+        flex-direction: column;
+    }
+    .text-container{
+        text-align: center;
+    }
+}
+@media(max-width:755px){
+    .news{
+        padding-inline: 4px;
+    }
+}
+@media(max-width:541px){
+    img{
+
+    }
+    .news-container{
+        padding: 10px 10px 20px;
+    }
+}

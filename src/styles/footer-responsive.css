@@ -12,9 +12,6 @@
     }
 }
 @media(max-width: 1078px){
-    .footer-container{
-
-    }
     .footer{
         translate: -50px 0;
     }
@@ -57,7 +54,7 @@
         transform: translateX(80px) translateY(-200px);
     }
     .contact{
-        transform: translateX(0) translateY(-210px);
+        transform: translateX(60px) translateY(-210px);
     }
 }
 @media(max-width: 760px){
@@ -70,6 +67,6 @@
         transform: translateX(50px) translateY(-200px);
     }
     .contact{
-        transform: translateX(10px) translateY(-180px);
+        transform: translateX(30px) translateY(-180px);
     }
 }
