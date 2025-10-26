@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
-import '../styles/leagueLI.css'
+import '../styles/leagueLI.css';
+import '../styles/footer-responsive.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTelegram } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 export default function Footer(){
     return(
-        <div className="w-full h-170 translate-y-38 bg-[url('/src/assets/CL.jpg')] bg-cover bg-top flex gap-5 justify-center">
-            <div className="text-white mt-14 -translate-x-78 font-medium text-[16px] flex gap-3">
+        <div className="footer-container w-full h-170 translate-y-38 bg-[url('/src/assets/CL.jpg')] bg-cover bg-top bg-no-repeat flex gap-5 justify-center">
+            <div className="contact text-white mt-14 -translate-x-78 font-medium text-[16px] flex gap-3">
                 <span className="font-serif text-[15px]">Contact Me: </span>
                 <div className="border-l border-blue-500 h-20 pl-2 flex flex-col gap-3">
                     <div className="flex items-center">
@@ -22,7 +23,7 @@ export default function Footer(){
                     </div>
                 </div>
             </div>
-            <div className="-translate-x-30  flex gap-5 justify-center">
+            <div className="footer -translate-x-30  flex gap-5 justify-center">
                <div className="pt-10 flex flex-col gap-4">
                    <h4 className="text-white">Leagues</h4>
                    <ul className="text-white flex flex-col gap-2">

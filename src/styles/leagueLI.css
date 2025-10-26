@@ -7,9 +7,9 @@
     background-color: rgb(44, 115, 255);
     border: none;
 }
-li{
+.footer li{
     transition: all .2s ease;
 }
-li:hover{
+.footer li:hover{
     color: blue;
 }
