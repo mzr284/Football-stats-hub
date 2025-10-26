@@ -3,7 +3,8 @@ import { FaChevronDown } from "react-icons/fa"
 import "../styles/leagueLI.css"
 import { Link } from "react-router-dom"
 export default function Header(){
-    let [statusMenu, setStatus] = useState(false)
+    let [statusMenuLeagues, setStatusLeague] = useState(false)
+    let [statusMenuTeams, setStatusTeams] = useState(false)
 
     return(
         <div className="flex justify-between w-full bg-gradient-to-r from-blue-600 to-blue-950 h-24 items-center px-5 shadow fixed z-1000">
@@ -12,8 +13,8 @@ export default function Header(){
             </Link>
             <div className="flex lg:gap-10 gap-6 lg:text-[18px] text-[15px] justify-center lg:mr-20 cursor-pointer text-white">
                 <div>
-                <a className="text-1xl flex justify-center items-center gap-1 hover:text-blue-500 transition" onClick={() => {setStatus(!statusMenu)}}>Leauges<FaChevronDown className="text-xs" /></a>
-                { statusMenu &&
+                <a className="text-1xl flex justify-center items-center gap-1 hover:text-blue-500 transition" onClick={() => {setStatusLeague(!statusMenuLeagues), setStatusTeams(false)}}>Leauges<FaChevronDown className="text-xs" /></a>
+                { statusMenuLeagues &&
                 <ul className="li-container mt-3 bg-gradient-to-r from-blue-700 to-blue-900 flex flex-col gap-3 px-2 py-2.5 justify-center font-serif absolute rounded lg:text-[16px]">
                     <Link to={`/league/PL`}><li>Premiur Leauge</li></Link>
                     <Link to={`/league/BL1`}><li>Boundes Liga</li></Link>
@@ -24,7 +25,20 @@ export default function Header(){
                 </ul>
                 }
                 </div>
-                <Link className="text-1xl hover:text-blue-500 transition">Favorite Clubs</Link>
+                <div>
+                <a className="text-1xl flex justify-center items-center gap-1 hover:text-blue-500 transition" onClick={() => {setStatusLeague(false), setStatusTeams(!statusMenuTeams)}}>Favorite Clubs<FaChevronDown className="text-xs" /></a>
+                { statusMenuTeams &&
+                <ul className="li-container mt-3 bg-gradient-to-r from-blue-700 to-blue-900 flex flex-col gap-3 px-2 py-2.5 justify-center font-serif absolute rounded lg:text-[16px]">
+                    <Link to={'/team/86'}><li>Real Madrid</li></Link>
+                    <Link to={'/team/81'}><li>Barcelona</li></Link>
+                    <Link to={'/team/5'}><li>Bayern Munic</li></Link>
+                    <Link to={'/team/109'}><li>Juventus</li></Link>
+                    <Link to={'/team/66'}><li>Man united</li></Link>
+                    <Link to={'/team/64'}><li>Liverpool</li></Link>
+                    <Link to={'/team/524'}><li>PSG</li></Link>
+                </ul>
+                }
+                </div>
                 <Link className="text-1xl hover:text-blue-500 transition" to={'/news'}>News</Link>
                 <Link className="text-1xl hover:text-blue-500 transition" to={'/'}>Home</Link>
             </div>
