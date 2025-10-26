@@ -25,8 +25,8 @@ export default function DataTable({league}){
     <div>
         { !errorStatus ? !loadStatus ?
         <div>
-        <div className="bg-gray-400 text-[14px] rounded-xl">
-            <div className="flex justify-between pr-4 pl-2 py-1 border-b border-gray-400">
+        <div className="bg-gradient-to-r from-blue-700 to-blue-900 text-[14px] rounded-xl">
+            <div className="flex justify-between pr-4 pl-2 py-1 border-b border-gray-400 text-white">
                 <div className="flex gap-1.5 font-serif">
                     <p>Pos</p>
                     <p>team</p>
@@ -52,7 +52,7 @@ export default function DataTable({league}){
         
         </div>
             <div className="flex items-center justify-center p-4">
-                <Link className="cursor-pointer text-[14px] font-black text-violet-800" to={`/league/${league}`}> Show More Info </Link>
+                <Link className="cursor-pointer text-[14px] font-black text-blue-800" to={`/league/${league}`}> Show More Info </Link>
             </div>
         </div>
         :

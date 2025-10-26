@@ -32,7 +32,7 @@ export default function SquadTeam({squad}){
               <h2 className="font-bold text-[20px] text-indigo-950">Players</h2>
             </div>
             <div>
-            <div className="flex justify-between gap-25 w-119 bg-indigo-900 text-white
+            <div className="flex justify-between gap-25 w-119 bg-gradient-to-r from-blue-700 to-blue-950 text-white
             px-1 py-0.5">
                 <span className="font-bold">name</span>
                 <div className="flex justify-between gap-19">
@@ -45,7 +45,7 @@ export default function SquadTeam({squad}){
                 {
                     squad.map((player, index)=>(
                         <div key={index} className="flex gap-10 justify-between py-1 px-2 bg-gray-200 shadow
-                        border-b border-gray-600 rounded">
+                        border-b border-blue-600 rounded">
                             <h4 className="font-medium">{player.name}</h4>
                             <div className="flex gap-3 w-60 justify-between">
                                 <span className="w-6">{positions[player.position]}</span>

@@ -25,7 +25,7 @@ export default function TopScorer(){
         <div className="table-scorer w-130 mb-15 bg-gray-100 px-3 py-2">
 
             {!loadStatus ? !errorStatus ? <div>
-                <div className="flex justify-between bg-gray-700 text-white mb-4 px-2 py-0.5 mt-5">
+                <div className="flex justify-between bg-gradient-to-r from-blue-700 to-blue-950 text-white mb-4 px-2 py-0.5 mt-5">
                     <div>
                         <span>Name</span>
                     </div>
@@ -39,7 +39,7 @@ export default function TopScorer(){
                     {
                         scorers.map((scorer, index)=>(
                             <div key={index} className="flex justify-between bg-gray-200 shadow py-1 px-0.5 pl-1.5 rounded
-                            border-b-1 border-b-blue-950 text-blue-950 font-semibold">
+                            border-b-1 border-b-blue-600 text-blue-950 font-semibold">
                                 <div>
                                     <span>{scorer.player.name}</span>
                                 </div>

@@ -26,7 +26,7 @@ export default function FullTable(){
     return(
         <div className="table- flex flex-col py-8 px-5 bg-gray-100 gap-4 translate-y-3 w-200">
             {!errorStatus ? !loadStatus ?<div>
-            <div className="bg-gray-700 text-white px-2 py-1 flex justify-between">
+            <div className="bg-gradient-to-r from-blue-700 to-blue-950 text-white px-2 py-1 flex justify-between">
                 <div className="flex gap-3">
                     <span>Pos</span>
                     <span>Team</span>
@@ -45,7 +45,7 @@ export default function FullTable(){
             <div className="flex flex-col gap-2">
                 {
                     clubs.map((team, index)=>(
-                        <div key={index} className={`team-container flex justify-between border-b border-b-gray-500 shadow
+                        <div key={index} className={`team-container flex justify-between border-b border-b-blue-600 shadow
                          bg-gray-200 px-0.5 py-[3px] ${team.position > 17 ? 'border-l-4 border-l-red-600' : ''}
                          ${team.position < 5 ? 'border-l-4 border-l-blue-500' : ''}
                          ${team.position === 5 || team.position === 6 ? 'border-l-4 border-l-orange-500' : ''}`}>
